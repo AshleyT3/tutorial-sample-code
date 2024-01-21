@@ -1,4 +1,4 @@
-// For the Windows x64 stack and shadow store tutorial: https://www.youtube.com/watch?v=I8TL2BbKnbQ
+// For the Windows MASM/assembly language tutorial: https://www.youtube.com/watch?v=I8TL2BbKnbQ
 // SimpleMessageBox.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
