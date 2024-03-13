@@ -1,6 +1,8 @@
 # RicochetTech Tutorial Source
 Misc source code for video/blog tutorials and walkthroughs.
-|Path|Description|
+|Description|Path|
 |----|-----------|
-|`./src/Intro-to-Ghidra-Tutorial/DemoApp`| The Visual Studio DemoApp used in the Intro to Ghidra Tutorial. |
-|`./src/MASM-WinDbg-ShadowStore-Tutorial/...`| MASM and Debugging Tools for Windows tutorial. |
+|Intro to Ghidra Tutorial|[src/Intro-to-Ghidra-Tutorial/DemoApp](src/Intro-to-Ghidra-Tutorial/DemoApp)|
+|Intro to building & debugging GHIDRA internals - Debug a real-world Ghidra issue|[src/Intro-to-Building-Debugging-Ghidra-internals-Tutorial](src/Intro-to-Building-Debugging-Ghidra-internals-Tutorial)|
+|MASM and Debugging Tools for Windows tutorial.|[src/MASM-WinDbg-ShadowStore-Tutorial](src/MASM-WinDbg-ShadowStore-Tutorial)|
+|OpenAI Whisper Tutorial|[src/OpenAI-Whisper-Tutorial](src/OpenAI-Whisper-Tutorial)|
