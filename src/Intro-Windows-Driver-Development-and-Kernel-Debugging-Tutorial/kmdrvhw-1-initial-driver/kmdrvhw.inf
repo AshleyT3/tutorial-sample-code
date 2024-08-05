@@ -1,0 +1,62 @@
+;
+; kmdrvhw.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System ; TODO: specify appropriate Class
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
+Provider    = %ManufacturerName%
+CatalogFile = kmdrvhw.cat
+DriverVer   = ; TODO: set DriverVer in stampinf property pages
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 13
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+kmdrvhw.sys = 1,,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName% = Standard,NT$ARCH$.10.0...16299 ; %13% support introduced in build 16299
+
+[Standard.NT$ARCH$.10.0...16299]
+%kmdrvhw.DeviceDesc% = kmdrvhw_Device, Root\kmdrvhw ; TODO: edit hw-id
+
+[kmdrvhw_Device.NT]
+CopyFiles = File_Copy
+
+[File_Copy]
+kmdrvhw.sys
+
+;-------------- Service installation
+[kmdrvhw_Device.NT.Services]
+AddService = kmdrvhw,%SPSVCINST_ASSOCSERVICE%, kmdrvhw_Service_Inst
+
+; -------------- kmdrvhw driver install sections
+[kmdrvhw_Service_Inst]
+DisplayName    = %kmdrvhw.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\kmdrvhw.sys
+
+[kmdrvhw_Device.NT.Wdf]
+KmdfService = kmdrvhw, kmdrvhw_wdfsect
+
+[kmdrvhw_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ManufacturerName = "Example Company" ;TODO: Replace with your manufacturer name
+DiskName = "kmdrvhw Installation Disk"
+kmdrvhw.DeviceDesc = "kmdrvhw Device"
+kmdrvhw.SVCDESC = "kmdrvhw Service"
